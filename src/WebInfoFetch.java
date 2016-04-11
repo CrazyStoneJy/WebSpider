@@ -46,17 +46,19 @@ public class WebInfoFetch {
             sb.append("title:").append(titleElement.text()).append("\n");
             Element infoElement = document.select("#hsPro-pos").first();//房源信息的div id
             if (infoElement != null) {
-                Elements allTags = infoElement.getAllElements();
-                for (Element e : allTags) {
-                    Element tag = e.getElementsByTag("SPAN").first();//现在只是判断了SPAN标签，如果是其他标签可以添加其他标签的代码
-                    if (tag != null) {
-                        String text = tag.text();
-                        if (!mStrList.contains(text)) {
-                            mStrList.add(text);
-                            sb.append("info:").append(text).append("\n");
-                        }
-                    }
-                }
+//                Elements allTags = infoElement.getAllElements();
+               String str= infoElement.text();
+                sb.append("info:").append(str);
+//                for (Element e : allTags) {
+//                    Element tag = e.getElementsByTag("SPAN").first();//现在只是判断了SPAN标签，如果是其他标签可以添加其他标签的代码
+//                    if (tag != null) {
+//                        String text = tag.text();
+//                        if (!mStrList.contains(text)) {
+//                            mStrList.add(text);
+//                            sb.append("info:").append(text).append("\n");
+//                        }
+//                    }
+//                }
             }
         } catch (IOException e) {
             e.printStackTrace();
